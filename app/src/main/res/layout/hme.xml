@@ -1,0 +1,651 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layoutDirection="rtl"
+	android:background="#FAFAFA"
+	android:orientation="vertical">
+
+	<!-- Header bar -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:paddingHorizontal="8dp"
+		android:paddingVertical="4dp">
+
+		<ImageView
+			android:id="@+id/imageview13"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:padding="4dp"
+			android:src="@drawable/cross"
+			android:scaleType="fitCenter"
+			android:contentDescription="@null" />
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:orientation="vertical"
+			android:gravity="center_horizontal"
+			android:layout_marginEnd="36dp">
+
+			<com.airbnb.lottie.LottieAnimationView
+				android:id="@+id/lottie1"
+				android:layout_width="120dp"
+				android:layout_height="80dp"
+				android:scaleType="fitCenter"
+				app:lottie_loop="true"
+				app:lottie_autoPlay="true" />
+		</LinearLayout>
+	</LinearLayout>
+
+	<!-- Scrollable content -->
+	<ScrollView
+		android:id="@+id/vscroll1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:id="@+id/linear1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingHorizontal="8dp"
+			android:paddingTop="4dp"
+			android:paddingBottom="16dp"
+			android:background="#FAFAFA"
+			android:orientation="vertical">
+
+			<!-- Section: المنزل -->
+			<TextView
+				android:id="@+id/textview13"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingHorizontal="8dp"
+				android:paddingTop="8dp"
+				android:paddingBottom="4dp"
+				android:text="المنزل"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				android:textColor="#47A3D8"
+				android:gravity="end" />
+
+			<HorizontalScrollView
+				android:id="@+id/hscroll2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingBottom="8dp">
+				<LinearLayout
+					android:id="@+id/linear14"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:paddingHorizontal="4dp">
+
+					<LinearLayout
+						android:id="@+id/linear6"
+						android:layout_width="140dp"
+						android:layout_height="70dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview5"
+							android:layout_width="44dp"
+							android:layout_height="44dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview5"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingHorizontal="6dp"
+							android:gravity="end"
+							android:text="الحمام"
+							android:textSize="16sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear7"
+						android:layout_width="140dp"
+						android:layout_height="70dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview6"
+							android:layout_width="44dp"
+							android:layout_height="44dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview6"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingHorizontal="6dp"
+							android:gravity="end"
+							android:text="المطبخ"
+							android:textSize="16sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear8"
+						android:layout_width="140dp"
+						android:layout_height="70dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview7"
+							android:layout_width="44dp"
+							android:layout_height="44dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview7"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingHorizontal="6dp"
+							android:gravity="end"
+							android:text="الأثاث"
+							android:textSize="16sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+				</LinearLayout>
+			</HorizontalScrollView>
+
+			<!-- Section: المفضلة -->
+			<TextView
+				android:id="@+id/textview14"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingHorizontal="8dp"
+				android:paddingTop="8dp"
+				android:paddingBottom="4dp"
+				android:text="المفضلة"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				android:textColor="#47A3D8"
+				android:gravity="end" />
+
+			<HorizontalScrollView
+				android:id="@+id/hscroll100"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingBottom="8dp">
+				<LinearLayout
+					android:id="@+id/linear402"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:paddingHorizontal="4dp">
+
+					<LinearLayout
+						android:id="@+id/linear2"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview1"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:text="الحيوانات"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:gravity="center"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear13"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview12"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview12"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الحروف العربية"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear412"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview29"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1097"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الحروف الإنجليزية"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear12"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview11"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview11"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الأرقام"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear10"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview9"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview9"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الألوان"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear11"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview10"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview10"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الأشكال"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear405"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview22"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1090"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="جسم الإنسان"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear4"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview4"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview3"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="وسائل المواصلات"
+							android:textSize="13sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear9"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview8"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview8"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الأدوات"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear396"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview14"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1082"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الطعام"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear408"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview25"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1093"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="المدرسة"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear401"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview19"
+							android:layout_width="80dp"
+							android:layout_height="80dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1087"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="6dp"
+							android:gravity="center"
+							android:text="الملابس"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+				</LinearLayout>
+			</HorizontalScrollView>
+
+			<!-- Section: الأيام والشهور -->
+			<TextView
+				android:id="@+id/textview1081"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingHorizontal="8dp"
+				android:paddingTop="8dp"
+				android:paddingBottom="4dp"
+				android:text="الأيام والشهور"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				android:textColor="#47A3D8"
+				android:gravity="end" />
+
+			<HorizontalScrollView
+				android:id="@+id/hscroll99"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingBottom="8dp">
+				<LinearLayout
+					android:id="@+id/linear395"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:paddingHorizontal="4dp">
+
+					<LinearLayout
+						android:id="@+id/linear397"
+						android:layout_width="140dp"
+						android:layout_height="70dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview15"
+							android:layout_width="44dp"
+							android:layout_height="44dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview1083"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingHorizontal="6dp"
+							android:gravity="end"
+							android:text="فصول السنة"
+							android:textSize="15sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear400"
+						android:layout_width="140dp"
+						android:layout_height="70dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview18"
+							android:layout_width="44dp"
+							android:layout_height="44dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview1086"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingHorizontal="6dp"
+							android:gravity="end"
+							android:text="الشهور الميلادية"
+							android:textSize="13sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/linear398"
+						android:layout_width="140dp"
+						android:layout_height="70dp"
+						android:layout_marginHorizontal="6dp"
+						android:padding="8dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:elevation="2dp">
+						<ImageView
+							android:id="@+id/imageview16"
+							android:layout_width="44dp"
+							android:layout_height="44dp"
+							android:src="@drawable/default_image"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview1084"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingHorizontal="6dp"
+							android:gravity="end"
+							android:text="أيام الأسبوع"
+							android:textSize="15sp"
+							android:textStyle="bold"
+							android:textColor="#FFFFFF" />
+					</LinearLayout>
+				</LinearLayout>
+			</HorizontalScrollView>
+
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

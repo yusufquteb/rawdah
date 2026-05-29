@@ -1,0 +1,3 @@
+-keep class myfirstwords.mynationdreams.** { *; }
+-keep class com.airbnb.lottie.** { *; }
+-dontwarn com.airbnb.lottie.**

@@ -1,0 +1,1 @@
+{"clothes9":"تنورة","clothes10":"ربطة عنق","clothes11":"قبعة","clothes12":"وشاح","clothes2":"بنطال","clothes7":"حزام","clothes1":"قميص","clothes8":"معطف","clothes3":"فستان","clothes6":"جوارب","clothes4":"سترة","clothes5":"حذاء"}

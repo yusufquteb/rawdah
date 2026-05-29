@@ -1,0 +1,1 @@
+{"school1":"Ruler","school8":"Pencil","school11":"Pencil case","school12":"School Bag","school9":"Black Board","school3":"Note Book","school5":"Colouring Pens","school2":"Pen","school7":"Pencil Sharpner","school10":"Scissors","school6":"Eraser","school4":"Book"}

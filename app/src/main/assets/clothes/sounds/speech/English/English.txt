@@ -1,0 +1,1 @@
+{"clothes9":"Skirt","clothes10":"Necktie","clothes11":"Cap","clothes12":"Scarf","clothes2":"Pants","clothes7":"Belt","clothes1":"Shirt","clothes8":"Coat","clothes3":"Dress","clothes6":"Socks","clothes4":"Jacket","clothes5":"Shoes"}

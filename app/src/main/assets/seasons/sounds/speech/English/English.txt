@@ -1,0 +1,1 @@
+{"season3":"SUMMER","season4":"AUTUMN","season1":"WINTER","season2":"SPRING"}

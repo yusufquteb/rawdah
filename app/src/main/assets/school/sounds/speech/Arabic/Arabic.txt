@@ -1,0 +1,1 @@
+{"school1":"مسطرة","school8":"قلم رصاص","school11":"مقلمة","school12":"شنطة","school9":"سبورة","school3":"كراس","school5":"أقلام تلوين","school2":"قلم","school7":"مبراة","school10":"مقص","school6":"ممحاة","school4":"كتاب"}
