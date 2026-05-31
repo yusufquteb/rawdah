@@ -856,28 +856,27 @@ fonts
 	
 	
 	public void _ui() {
-		strok = "#f5f5f5";
-		_rippleRoundStroke(linear2, "#F07060", "#F07060", 25, 4, strok);
-		_rippleRoundStroke(linear4, "#D16FB7", "#D16FB7", 25, 4, strok);
-		_rippleRoundStroke(linear6, "#F5f5f5", "#F5f5f5", 25, 4, strok);
-		_rippleRoundStroke(linear7, "#F5f5f5", "#f5f5f5", 25, 4, strok);
-		_rippleRoundStroke(linear8, "#757575", "#757575", 25, 4, strok);
-		_rippleRoundStroke(linear9, "#47A3D8", "#47A3D8", 25, 4, strok);
-		_rippleRoundStroke(linear10, "#8E8CD8", "#8E8CD8", 25, 4, strok);
-		_rippleRoundStroke(linear11, "#FBEC5D", "#FBEC5D", 25, 4, strok);
-		_rippleRoundStroke(linear12, "#50C878", "#50C878", 25, 4, strok);
-		_rippleRoundStroke(linear13, "#563C5C", "#563C5C", 25, 4, strok);
-		_rippleRoundStroke(linear6, "#909090", "#909090", 25, 4, strok);
-		_rippleRoundStroke(linear7, "#585F98", "#585F98", 25, 4, strok);
-		_rippleRoundStroke(linear396, "#884078", "#884078", 25, 4, strok);
-		_rippleRoundStroke(linear6, "#909090", "#909090", 25, 4, strok);
-		_rippleRoundStroke(linear397, "#585F98", "#585F98", 25, 4, strok);
-		_rippleRoundStroke(linear398, "#4C9CAA", "#4C9CAA", 25, 4, strok);
-		_rippleRoundStroke(linear400, "#34495E", "#34495E", 25, 4, strok);
-		_rippleRoundStroke(linear401, "#6D8764", "#6D8764", 25, 4, strok);
-		_rippleRoundStroke(linear405, "#8050BE", "#8050BE", 25, 4, strok);
-		_rippleRoundStroke(linear408, "#3B7A57", "#3B7A57", 25, 4, strok);
-		_rippleRoundStroke(linear412, "#9966CC", "#9966CC", 25, 4, strok);
+		// المنزل section
+		_rippleRoundStroke(linear6,  "#FF6B6B", "#FF6B6B", 40, 0, "#FF6B6B");
+		_rippleRoundStroke(linear7,  "#4ECDC4", "#4ECDC4", 40, 0, "#4ECDC4");
+		_rippleRoundStroke(linear8,  "#FFB347", "#FFB347", 40, 0, "#FFB347");
+		// المفضلة section
+		_rippleRoundStroke(linear2,  "#FF6B6B", "#FF6B6B", 40, 0, "#FF6B6B");
+		_rippleRoundStroke(linear13, "#7B2FBE", "#7B2FBE", 40, 0, "#7B2FBE");
+		_rippleRoundStroke(linear412,"#4895EF", "#4895EF", 40, 0, "#4895EF");
+		_rippleRoundStroke(linear12, "#4CC9F0", "#4CC9F0", 40, 0, "#4CC9F0");
+		_rippleRoundStroke(linear10, "#F72585", "#F72585", 40, 0, "#F72585");
+		_rippleRoundStroke(linear11, "#7209B7", "#7209B7", 40, 0, "#7209B7");
+		_rippleRoundStroke(linear405,"#3A86FF", "#3A86FF", 40, 0, "#3A86FF");
+		_rippleRoundStroke(linear4,  "#FB8500", "#FB8500", 40, 0, "#FB8500");
+		_rippleRoundStroke(linear9,  "#06D6A0", "#06D6A0", 40, 0, "#06D6A0");
+		_rippleRoundStroke(linear396,"#EF233C", "#EF233C", 40, 0, "#EF233C");
+		_rippleRoundStroke(linear408,"#8338EC", "#8338EC", 40, 0, "#8338EC");
+		_rippleRoundStroke(linear401,"#3A0CA3", "#3A0CA3", 40, 0, "#3A0CA3");
+		// الأيام والشهور section
+		_rippleRoundStroke(linear397,"#F77F00", "#F77F00", 40, 0, "#F77F00");
+		_rippleRoundStroke(linear400,"#4361EE", "#4361EE", 40, 0, "#4361EE");
+		_rippleRoundStroke(linear398,"#7209B7", "#7209B7", 40, 0, "#7209B7");
 	}
 	
 	
