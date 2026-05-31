@@ -80,7 +80,7 @@ public class PagerActivity extends AppCompatActivity {
 	private double duration = 0;
 	private double duration1 = 0;
 	private String animals_e_a = "";
-	private double no = 0;
+	private int no = 0;
 	private String lottie = "";
 	private String path = "";
 	private String tv = "";
@@ -201,11 +201,8 @@ public class PagerActivity extends AppCompatActivity {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 		_languageblock2();
-		_pagerlist();
-		/*
-lottie
-*/
 		no = SketchwareUtil.getRandom((int)(1), (int)(17));
+		_pagerlist();
 	}
 	
 	
