@@ -201,14 +201,14 @@ public class HmeActivity extends AppCompatActivity {
 		imageview16 = HmeActivity.this.findViewById(R.id.imageview16);
 		textview1084 = HmeActivity.this.findViewById(R.id.textview1084);
 		
-		imageview13.setOnLongClickListener(View _view -> {
+		imageview13.setOnLongClickListener(_view -> {
 			if (mediaPlayer2!=null) { 
 				mediaPlayer2.reset(); }
 			finishAffinity();
 			return true;
 		});
 		
-		linear6.setOnClickListener(View _view -> {
+		linear6.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "bath";
 			if (mediaPlayer2!=null) { 
@@ -238,7 +238,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear7.setOnClickListener(View _view -> {
+		linear7.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "kitchen";
 			if (mediaPlayer2!=null) { 
@@ -268,7 +268,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear8.setOnClickListener(View _view -> {
+		linear8.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "furniture";
 			if (mediaPlayer2!=null) { 
@@ -298,7 +298,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear2.setOnClickListener(View _view -> {
+		linear2.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "animals";
 			if (mediaPlayer2!=null) { 
@@ -326,7 +326,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear13.setOnClickListener(View _view -> {
+		linear13.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "alphabet";
 			if (mediaPlayer2!=null) { 
@@ -354,7 +354,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear412.setOnClickListener(View _view -> {
+		linear412.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "alphabet-e";
 			if (mediaPlayer2!=null) { 
@@ -382,7 +382,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear12.setOnClickListener(View _view -> {
+		linear12.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "numbers";
 			if (mediaPlayer2!=null) { 
@@ -412,7 +412,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear10.setOnClickListener(View _view -> {
+		linear10.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "colors";
 			if (mediaPlayer2!=null) { 
@@ -442,7 +442,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear11.setOnClickListener(View _view -> {
+		linear11.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "shapes";
 			if (mediaPlayer2!=null) { 
@@ -472,7 +472,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear405.setOnClickListener(View _view -> {
+		linear405.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "body";
 			if (mediaPlayer2!=null) { 
@@ -502,7 +502,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear4.setOnClickListener(View _view -> {
+		linear4.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "vehicles";
 			if (mediaPlayer2!=null) { 
@@ -532,7 +532,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear9.setOnClickListener(View _view -> {
+		linear9.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "tools";
 			if (mediaPlayer2!=null) { 
@@ -562,7 +562,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear396.setOnClickListener(View _view -> {
+		linear396.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "food";
 			if (mediaPlayer2!=null) { 
@@ -592,7 +592,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear408.setOnClickListener(View _view -> {
+		linear408.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "school";
 			if (mediaPlayer2!=null) { 
@@ -622,7 +622,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear401.setOnClickListener(View _view -> {
+		linear401.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "clothes";
 			if (mediaPlayer2!=null) { 
@@ -652,7 +652,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear397.setOnClickListener(View _view -> {
+		linear397.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "seasons";
 			if (mediaPlayer2!=null) { 
@@ -682,7 +682,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear400.setOnClickListener(View _view -> {
+		linear400.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "months";
 			if (mediaPlayer2!=null) { 
@@ -712,7 +712,7 @@ public class HmeActivity extends AppCompatActivity {
 			_timer.schedule(t, (int)(mediaPlayer2.getDuration() + 0));
 		});
 		
-		linear398.setOnClickListener(View _view -> {
+		linear398.setOnClickListener(_view -> {
 			_un_clickable();
 			section = "week days";
 			if (mediaPlayer2!=null) { 

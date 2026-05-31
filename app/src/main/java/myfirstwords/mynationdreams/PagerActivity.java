@@ -137,7 +137,7 @@ public class PagerActivity extends AppCompatActivity {
 		language1 = this.getSharedPreferences("language1", Activity.MODE_PRIVATE);
 		pic = this.getSharedPreferences("pic", Activity.MODE_PRIVATE);
 		
-		imageview1.setOnClickListener(View _view -> {
+		imageview1.setOnClickListener(_view -> {
 			if (mediaPlayer!=null) { 
 				mediaPlayer.reset(); }
 			media_timer.cancel();
