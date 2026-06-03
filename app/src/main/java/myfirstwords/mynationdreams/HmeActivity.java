@@ -6,6 +6,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,7 +21,7 @@ import java.util.List;
 public class HmeActivity extends AppCompatActivity {
 
     private ImageView ivMascot, btnClose, btnParent;
-    private TextView tvGreeting, tvEncouragement, tvWordsCount, tvStreak, tvGoalProgress;
+    private TextView tvGreeting, tvEncouragement, tvWordsCount, tvStreak, tvGoalProgress, tvNextGoal;
     private LinearProgressIndicator progressDaily;
     private RecyclerView rvCategories;
     private LinearLayout btnRewards, btnWriting;
@@ -29,6 +31,7 @@ public class HmeActivity extends AppCompatActivity {
     private ProgressManager progressManager;
     private MediaPlayer mediaPlayer;
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private ObjectAnimator idleAnimator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,13 @@ public class HmeActivity extends AppCompatActivity {
         setupStats();
         if (rvCategories.getAdapter() != null)
             rvCategories.getAdapter().notifyDataSetChanged();
+        if (idleAnimator != null) idleAnimator.resume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (idleAnimator != null) idleAnimator.pause();
     }
 
     private void initViews() {
@@ -59,6 +69,7 @@ public class HmeActivity extends AppCompatActivity {
         tvWordsCount   = findViewById(R.id.tv_words_count);
         tvStreak       = findViewById(R.id.tv_streak);
         tvGoalProgress = findViewById(R.id.tv_goal_progress);
+        tvNextGoal     = findViewById(R.id.tv_next_goal);
         progressDaily  = findViewById(R.id.progress_daily);
         rvCategories   = findViewById(R.id.rv_categories);
         btnRewards     = findViewById(R.id.btn_rewards);
@@ -78,12 +89,46 @@ public class HmeActivity extends AppCompatActivity {
         ivMascot.setScaleY(0.5f);
         ivMascot.animate().alpha(1f).scaleX(1f).scaleY(1f)
             .setDuration(600).setInterpolator(new OvershootInterpolator()).start();
+
+        // Wave once on entry, then start idle float loop
         handler.postDelayed(() -> {
             ObjectAnimator wave = ObjectAnimator.ofFloat(
                 ivMascot, "rotation", 0f, 12f, -12f, 8f, -8f, 0f);
             wave.setDuration(900);
             wave.start();
         }, 700);
+        handler.postDelayed(this::startIdleAnimation, 1800);
+
+        ivMascot.setOnClickListener(v -> playMascotHappyReaction());
+    }
+
+    private void startIdleAnimation() {
+        if (idleAnimator != null) idleAnimator.cancel();
+        idleAnimator = ObjectAnimator.ofFloat(ivMascot, "translationY", 0f, -9f);
+        idleAnimator.setDuration(1400);
+        idleAnimator.setRepeatCount(ObjectAnimator.INFINITE);
+        idleAnimator.setRepeatMode(ObjectAnimator.REVERSE);
+        idleAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        idleAnimator.start();
+    }
+
+    private void playMascotHappyReaction() {
+        if (idleAnimator != null) idleAnimator.pause();
+        ivMascot.animate()
+            .translationY(0f)
+            .scaleX(1.35f).scaleY(1.35f)
+            .setDuration(130)
+            .withEndAction(() ->
+                ivMascot.animate()
+                    .scaleX(1f).scaleY(1f)
+                    .setDuration(320)
+                    .setInterpolator(new OvershootInterpolator(4f))
+                    .withEndAction(() -> {
+                        if (idleAnimator != null) idleAnimator.resume();
+                    })
+                    .start()
+            ).start();
+        tvEncouragement.setText(EncouragementHelper.getStartMessage(this));
     }
 
     private void setupGreeting() {
@@ -104,6 +149,43 @@ public class HmeActivity extends AppCompatActivity {
 
         int pct = dailyGoal > 0 ? Math.min(100, (todayWords * 100) / dailyGoal) : 0;
         ObjectAnimator.ofInt(progressDaily, "progress", 0, pct).setDuration(800).start();
+        setupNextGoalTeaser();
+    }
+
+    private void setupNextGoalTeaser() {
+        String teaser = computeNextGoal();
+        if (teaser != null) {
+            tvNextGoal.setVisibility(View.VISIBLE);
+            tvNextGoal.setText(teaser);
+        } else {
+            tvNextGoal.setVisibility(View.GONE);
+        }
+    }
+
+    private String computeNextGoal() {
+        int streak = progressManager.getStreakDays();
+        if (streak < 7) {
+            int rem = 7 - streak;
+            return rem == 1 ? "بقي يوم واحد فقط لشارة الأسبوع! 🔥"
+                            : "بقي " + rem + " أيام لشارة الأسبوع 🔥";
+        }
+        int words = progressManager.getTotalLearnedWords();
+        if (words < 5)  return "تعلم " + (5  - words) + " كلمات لتفتح أول شارة! ⭐";
+        if (words < 20) return "بقي " + (20 - words) + " كلمة لشارة المستكشف 🔍";
+        if (words < 50) return "بقي " + (50 - words) + " كلمة للشارة الذهبية 🏆";
+
+        String[][] cats = {
+            {"animals",    "الحيوانات",          "🦁"},
+            {"alphabet",   "الأبجدية العربية",   "ا"},
+            {"alphabet-e", "الأبجدية الإنجليزية","A"},
+            {"numbers",    "الأرقام",             "١٢٣"}
+        };
+        for (String[] cat : cats) {
+            int stars = progressManager.getCategoryStars(cat[0]);
+            if (stars == 0) return "العب في " + cat[1] + " لتكسب أول نجمة! " + cat[2];
+            if (stars < 3)  return "أكمل " + cat[1] + " للحصول على المزيد من النجوم " + cat[2];
+        }
+        return null;
     }
 
     private void setupCategories() {
@@ -207,6 +289,7 @@ public class HmeActivity extends AppCompatActivity {
     @Override protected void onDestroy() {
         super.onDestroy();
         handler.removeCallbacksAndMessages(null);
+        if (idleAnimator != null) idleAnimator.cancel();
         stopMedia();
     }
 }
