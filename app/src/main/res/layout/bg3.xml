@@ -1,168 +1,308 @@
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:layoutDirection="rtl"
-	android:background="@drawable/bg3_bg"
-	android:orientation="vertical">
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:background="@color/bg_cream">
 
-	<LinearLayout
-		android:id="@+id/bg"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:gravity="center_horizontal"
-		android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-		<LinearLayout
-			android:id="@+id/box"
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_weight="1"
-			android:layout_margin="10dp"
-			android:padding="12dp"
-			android:gravity="center_horizontal"
-			android:orientation="vertical"
-			android:elevation="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingBottom="16dp">
 
-			<LinearLayout
-				android:id="@+id/lin_pic"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="8dp"
-				android:padding="4dp"
-				android:gravity="center"
-				android:orientation="horizontal">
-				<LinearLayout
-					android:id="@+id/linear7"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview1"
-						android:focusable="false"
-						android:layout_width="220dp"
-						android:layout_height="220dp"
-						android:src="@drawable/default_image"
-						android:scaleType="fitCenter"
-						android:layout_gravity="center" />
-				</LinearLayout>
-			</LinearLayout>
+            <!-- Main card -->
+            <LinearLayout
+                android:id="@+id/box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:padding="16dp"
+                android:background="@drawable/bg_card_rounded"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:elevation="4dp">
 
-			<LinearLayout
-				android:id="@+id/linear1"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:paddingHorizontal="16dp"
-				android:paddingTop="12dp"
-				android:paddingBottom="4dp"
-				android:gravity="center"
-				android:orientation="vertical">
+                <!-- Counter chip -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_counter_chip"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="5dp"
+                    android:layout_marginBottom="10dp">
 
-				<LinearLayout
-					android:id="@+id/linear2"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:paddingHorizontal="28dp"
-					android:paddingVertical="10dp"
-					android:gravity="center"
-					android:orientation="horizontal">
-					<TextView
-						android:id="@+id/textview1"
-						android:focusable="false"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="عربي"
-						android:textSize="24sp"
-						android:textStyle="bold"
-						android:textColor="#FFFFFF" />
-				</LinearLayout>
+                    <TextView
+                        android:id="@+id/textview2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 / 4"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/cairo"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
 
-				<LinearLayout
-					android:id="@+id/linear4"
-					android:layout_width="match_parent"
-					android:layout_height="8dp"
-					android:orientation="horizontal" />
+                <!-- Word image -->
+                <LinearLayout
+                    android:id="@+id/lin_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-				<LinearLayout
-					android:id="@+id/linear3"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:paddingHorizontal="28dp"
-					android:paddingVertical="10dp"
-					android:gravity="center"
-					android:orientation="horizontal">
-					<TextView
-						android:id="@+id/textview4"
-						android:focusable="false"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="ENGLISH"
-						android:textSize="20sp"
-						android:textStyle="bold"
-						android:textColor="#E8E8FF" />
-				</LinearLayout>
-			</LinearLayout>
+                    <FrameLayout
+                        android:layout_width="240dp"
+                        android:layout_height="240dp">
 
-			<LinearLayout
-				android:id="@+id/linear8"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:padding="10dp"
-				android:gravity="center"
-				android:orientation="horizontal">
-				<ImageView
-					android:id="@+id/play"
-					android:focusable="false"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:src="@drawable/play"
-					android:scaleType="center" />
-			</LinearLayout>
+                        <ImageView
+                            android:id="@+id/imageview1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/default_image"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="@null" />
+                    </FrameLayout>
+                </LinearLayout>
 
-		</LinearLayout>
+                <!-- Arabic word -->
+                <LinearLayout
+                    android:id="@+id/linear2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    android:background="@drawable/bg_word_ar"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginHorizontal="8dp">
 
-		<!-- Lottie strip at bottom of bg -->
-		<LinearLayout
-			android:id="@+id/linear6"
-			android:layout_width="match_parent"
-			android:layout_height="90dp"
-			android:gravity="center"
-			android:orientation="horizontal">
-			<com.airbnb.lottie.LottieAnimationView
-				android:id="@+id/lottie2"
-				android:layout_width="match_parent"
-				android:layout_height="90dp"
-				android:padding="4dp"
-				android:scaleType="fitCenter"
-				app:lottie_fileName="lottie/octopus.json"
-				app:lottie_loop="true"
-				app:lottie_autoPlay="true" />
-		</LinearLayout>
+                    <TextView
+                        android:id="@+id/textview1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الكلمة"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/cairo"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        android:gravity="center" />
+                </LinearLayout>
 
-	</LinearLayout>
+                <!-- English word -->
+                <LinearLayout
+                    android:id="@+id/linear3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:layout_marginTop="6dp">
 
-	<!-- Counter chip at very bottom -->
-	<LinearLayout
-		android:id="@+id/linear5"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:paddingHorizontal="20dp"
-		android:paddingVertical="8dp"
-		android:gravity="center"
-		android:orientation="horizontal"
-		android:layout_gravity="center_horizontal">
-		<TextView
-			android:id="@+id/textview2"
-			android:focusable="false"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:text="1/4"
-			android:textSize="16sp"
-			android:textStyle="bold"
-			android:textColor="#FFFFFF" />
-	</LinearLayout>
+                    <TextView
+                        android:id="@+id/textview4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Word"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center" />
+                </LinearLayout>
 
-</LinearLayout>
+                <!-- Song lyric (shown only for alphabet) -->
+                <LinearLayout
+                    android:id="@+id/layout_song_lyric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_lyric_card"
+                    android:padding="12dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎵 كلمة الأغنية"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/cairo"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/tv_song_lyric"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="16sp"
+                        android:fontFamily="@font/cairo"
+                        android:textStyle="italic"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- Animal image for alphabet (shown only for alphabet) -->
+                <LinearLayout
+                    android:id="@+id/layout_animal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الحيوان:"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/cairo"
+                        android:textColor="@color/text_secondary" />
+
+                    <ImageView
+                        android:id="@+id/iv_animal"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@null"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/tv_animal_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="15sp"
+                        android:fontFamily="@font/cairo"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- Sound buttons row -->
+                <LinearLayout
+                    android:id="@+id/linear8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <!-- Listen Arabic -->
+                    <LinearLayout
+                        android:id="@+id/btn_play_ar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_button_primary"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_sound"
+                            android:contentDescription="@null" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="عربي"
+                            android:fontFamily="@font/cairo"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                    <!-- Listen English -->
+                    <LinearLayout
+                        android:id="@+id/btn_play_en"
+                        android:layout_width="wrap_content"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_button_en"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_sound"
+                            android:contentDescription="@null" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="English"
+                            android:fontFamily="@font/poppins"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                    <!-- Animal sound (shown for animals + alphabet) -->
+                    <LinearLayout
+                        android:id="@+id/play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_button_orange"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:layout_marginStart="8dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🐾"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="صوت"
+                            android:fontFamily="@font/cairo"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Encouragement message -->
+                <TextView
+                    android:id="@+id/tv_encouragement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text=""
+                    android:textSize="16sp"
+                    android:fontFamily="@font/cairo"
+                    android:textColor="@color/success_green"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Confetti overlay (invisible until triggered) -->
+    <myfirstwords.mynationdreams.ConfettiView
+        android:id="@+id/confetti_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false" />
+
+</FrameLayout>

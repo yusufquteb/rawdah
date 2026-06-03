@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Body / Shirt (Blue) -->
+    <path
+        android:fillColor="#4895EF"
+        android:pathData="M60,140 Q60,165 100,168 Q140,165 140,140 L140,120 Q140,110 130,108 L70,108 Q60,110 60,120 Z" />
+
+    <!-- Neck -->
+    <path
+        android:fillColor="#FFCC99"
+        android:pathData="M88,108 L88,118 Q100,122 112,118 L112,108 Z" />
+
+    <!-- Head -->
+    <path
+        android:fillColor="#FFCC99"
+        android:pathData="M65,80 Q65,50 100,48 Q135,50 135,80 Q135,110 100,112 Q65,110 65,80 Z" />
+
+    <!-- Hair (Dark Brown) -->
+    <path
+        android:fillColor="#5D3A1A"
+        android:pathData="M65,80 Q64,60 70,55 Q80,45 100,44 Q120,45 130,55 Q136,60 135,72 Q130,60 120,57 Q100,52 80,57 Q70,60 65,80 Z" />
+
+    <!-- Cap (Orange-Red) -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M62,76 Q65,52 100,50 Q135,52 138,76 L62,76 Z" />
+    <!-- Cap Brim -->
+    <path
+        android:fillColor="#E55A2B"
+        android:pathData="M55,80 L145,80 Q145,76 138,76 L62,76 Q55,76 55,80 Z" />
+
+    <!-- Eyes (White) -->
+    <ellipse
+        android:fillColor="#FFFFFF"
+        android:cx="85"
+        android:cy="82"
+        android:rx="9"
+        android:ry="9" />
+    <ellipse
+        android:fillColor="#FFFFFF"
+        android:cx="115"
+        android:cy="82"
+        android:rx="9"
+        android:ry="9" />
+
+    <!-- Pupils (Dark) -->
+    <ellipse
+        android:fillColor="#2D2D2D"
+        android:cx="87"
+        android:cy="84"
+        android:rx="5"
+        android:ry="5" />
+    <ellipse
+        android:fillColor="#2D2D2D"
+        android:cx="117"
+        android:cy="84"
+        android:rx="5"
+        android:ry="5" />
+
+    <!-- Eye Shine -->
+    <ellipse
+        android:fillColor="#FFFFFF"
+        android:cx="89"
+        android:cy="82"
+        android:rx="2"
+        android:ry="2" />
+    <ellipse
+        android:fillColor="#FFFFFF"
+        android:cx="119"
+        android:cy="82"
+        android:rx="2"
+        android:ry="2" />
+
+    <!-- Eyebrows -->
+    <path
+        android:strokeColor="#5D3A1A"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M78,73 Q85,70 92,73" />
+    <path
+        android:strokeColor="#5D3A1A"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M108,73 Q115,70 122,73" />
+
+    <!-- Nose -->
+    <ellipse
+        android:fillColor="#F0A070"
+        android:cx="100"
+        android:cy="92"
+        android:rx="3"
+        android:ry="2.5" />
+
+    <!-- Smile -->
+    <path
+        android:strokeColor="#D4732A"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M88,100 Q100,110 112,100" />
+
+    <!-- Cheeks (Pink blush) -->
+    <ellipse
+        android:fillColor="#FFB3B3"
+        android:cx="76"
+        android:cy="97"
+        android:rx="6"
+        android:ry="4"
+        android:fillAlpha="0.5" />
+    <ellipse
+        android:fillColor="#FFB3B3"
+        android:cx="124"
+        android:cy="97"
+        android:rx="6"
+        android:ry="4"
+        android:fillAlpha="0.5" />
+
+    <!-- Left Arm (waving up) -->
+    <path
+        android:fillColor="#4895EF"
+        android:pathData="M60,115 Q40,105 35,88 Q32,80 38,77 Q45,74 48,82 Q52,90 60,120 Z" />
+    <!-- Left Hand -->
+    <ellipse
+        android:fillColor="#FFCC99"
+        android:cx="37"
+        android:cy="75"
+        android:rx="8"
+        android:ry="8" />
+
+    <!-- Right Arm -->
+    <path
+        android:fillColor="#4895EF"
+        android:pathData="M140,115 Q158,108 162,125 Q164,135 155,138 Q147,140 140,130 Z" />
+    <!-- Right Hand -->
+    <ellipse
+        android:fillColor="#FFCC99"
+        android:cx="163"
+        android:cy="127"
+        android:rx="8"
+        android:ry="8" />
+
+    <!-- Legs -->
+    <path
+        android:fillColor="#3A3A6A"
+        android:pathData="M75,165 L78,190 L90,190 L92,165 Z" />
+    <path
+        android:fillColor="#3A3A6A"
+        android:pathData="M108,165 L111,190 L123,190 L120,165 Z" />
+
+    <!-- Shoes -->
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M72,188 Q78,194 92,192 L90,186 Z" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M108,188 Q117,194 127,192 L123,186 Z" />
+
+    <!-- Star sparkle near hand -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M20,60 L22,54 L24,60 L30,60 L25,64 L27,70 L22,66 L17,70 L19,64 L14,60 Z" />
+</vector>

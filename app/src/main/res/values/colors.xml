@@ -1,8 +1,101 @@
 <resources>
-	<color name="colorPrimary">#008DCD</color>
-	<color name="colorPrimaryDark">#FFFFFF</color>
-	<color name="colorAccent">#008DCD</color>
-	<color name="colorOnPrimary">#FFFFFF</color>
-	<color name="colorControlHighlight">#20008DCD</color>
-	<color name="colorControlNormal">#57BEEE</color>
+    <!-- Primary Brand Colors -->
+    <color name="primary_purple">#6C63FF</color>
+    <color name="accent_orange">#FFB84C</color>
+    <color name="colorPrimary">#6C63FF</color>
+    <color name="colorPrimaryDark">#4A44CC</color>
+    <color name="colorPrimaryLight">#9C94FF</color>
+    <color name="colorAccent">#FFB84C</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorControlHighlight">#206C63FF</color>
+    <color name="colorControlNormal">#9C94FF</color>
+
+    <!-- Background System -->
+    <color name="bg_cream">#FFFDF7</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="bg_surface">#F7F5FF</color>
+
+    <!-- Semantic Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="success_light">#E8F5E9</color>
+    <color name="error_red">#FF5252</color>
+    <color name="error_light">#FFEBEE</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="star_gold">#FFD700</color>
+    <color name="star_empty">#E0E0E0</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#5A5A7A</color>
+    <color name="text_hint">#9E9EB8</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Category Colors - Pastel version for cards -->
+    <color name="cat_animals">#FF6B6B</color>
+    <color name="cat_animals_bg">#FFF0F0</color>
+    <color name="cat_alphabet_ar">#7B2FBE</color>
+    <color name="cat_alphabet_ar_bg">#F3E8FF</color>
+    <color name="cat_alphabet_en">#4895EF</color>
+    <color name="cat_alphabet_en_bg">#E8F4FF</color>
+    <color name="cat_numbers">#4CC9F0</color>
+    <color name="cat_numbers_bg">#E8FAFF</color>
+    <color name="cat_colors">#F72585</color>
+    <color name="cat_colors_bg">#FFE8F5</color>
+    <color name="cat_shapes">#7209B7</color>
+    <color name="cat_shapes_bg">#F0E0FF</color>
+    <color name="cat_body">#3A86FF</color>
+    <color name="cat_body_bg">#E0EEFF</color>
+    <color name="cat_vehicles">#FB8500</color>
+    <color name="cat_vehicles_bg">#FFF3E0</color>
+    <color name="cat_tools">#06D6A0</color>
+    <color name="cat_tools_bg">#E0FFF8</color>
+    <color name="cat_food">#EF233C</color>
+    <color name="cat_food_bg">#FFECEE</color>
+    <color name="cat_school">#8338EC</color>
+    <color name="cat_school_bg">#F0E8FF</color>
+    <color name="cat_clothes">#3A0CA3</color>
+    <color name="cat_clothes_bg">#E8E0FF</color>
+    <color name="cat_bath">#FF6B35</color>
+    <color name="cat_bath_bg">#FFF1EB</color>
+    <color name="cat_kitchen">#4ECDC4</color>
+    <color name="cat_kitchen_bg">#E8FFFE</color>
+    <color name="cat_furniture">#FFB347</color>
+    <color name="cat_furniture_bg">#FFF8E8</color>
+    <color name="cat_seasons">#F77F00</color>
+    <color name="cat_seasons_bg">#FFF3E0</color>
+    <color name="cat_months">#4361EE</color>
+    <color name="cat_months_bg">#E8ECFF</color>
+    <color name="cat_weekdays">#7209B7</color>
+    <color name="cat_weekdays_bg">#F0E0FF</color>
+
+    <!-- Mascot Colors - Boy -->
+    <color name="mascot_boy_skin">#FFCC99</color>
+    <color name="mascot_boy_shirt">#4895EF</color>
+    <color name="mascot_boy_hair">#5D3A1A</color>
+    <color name="mascot_boy_cap">#FF6B35</color>
+
+    <!-- Mascot Colors - Girl -->
+    <color name="mascot_girl_skin">#FFCC99</color>
+    <color name="mascot_girl_dress">#F72585</color>
+    <color name="mascot_girl_hair">#3D1C02</color>
+    <color name="mascot_girl_bow">#FF85C0</color>
+
+    <!-- Confetti Colors -->
+    <color name="confetti_1">#FF6B6B</color>
+    <color name="confetti_2">#FFB84C</color>
+    <color name="confetti_3">#6C63FF</color>
+    <color name="confetti_4">#4CC9F0</color>
+    <color name="confetti_5">#06D6A0</color>
+    <color name="confetti_6">#F72585</color>
+
+    <!-- Game Colors -->
+    <color name="game_correct">#4CAF50</color>
+    <color name="game_wrong">#FF5252</color>
+    <color name="game_card_back">#6C63FF</color>
+    <color name="game_card_front">#FFFFFF</color>
+
+    <!-- Night mode surface -->
+    <color name="night_bg">#1A1A2E</color>
+    <color name="night_card">#16213E</color>
+    <color name="night_surface">#0F3460</color>
 </resources>
