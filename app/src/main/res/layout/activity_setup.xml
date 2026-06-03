@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:background="@color/bg_cream"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- Mascot -->
+        <FrameLayout
+            android:id="@+id/mascot_frame"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_circle_primary"
+                android:alpha="0.12"/>
+            <ImageView
+                android:id="@+id/iv_mascot"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center"
+                android:src="@drawable/mascot_boy"
+                android:scaleType="fitCenter"
+                android:contentDescription="@null"/>
+        </FrameLayout>
+
+        <!-- Welcome -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/setup_welcome"
+            android:textSize="30sp"
+            android:fontFamily="@font/cairo"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/setup_subtitle"
+            android:textSize="16sp"
+            android:fontFamily="@font/cairo"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"/>
+
+        <!-- Name label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/setup_name_label"
+            android:textSize="16sp"
+            android:fontFamily="@font/cairo"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
+
+        <!-- Name field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/setup_name_hint"
+                android:textSize="18sp"
+                android:fontFamily="@font/cairo"
+                android:inputType="textPersonName"
+                android:gravity="center"
+                android:textColor="@color/text_primary"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Gender label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/setup_gender_label"
+            android:textSize="16sp"
+            android:fontFamily="@font/cairo"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <!-- Boy -->
+            <LinearLayout
+                android:id="@+id/btn_boy"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_gender_boy_selected"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/mascot_boy"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_boy"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/cairo"
+                    android:textStyle="bold"
+                    android:textColor="@color/cat_alphabet_en"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <!-- Girl -->
+            <LinearLayout
+                android:id="@+id/btn_girl"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_gender_unselected"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/mascot_girl"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_girl"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/cairo"
+                    android:textStyle="bold"
+                    android:textColor="@color/cat_colors"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Age label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/setup_age_label"
+            android:textSize="16sp"
+            android:fontFamily="@font/cairo"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout android:id="@+id/btn_age1"
+                android:layout_width="0dp" android:layout_height="52dp"
+                android:layout_weight="1" android:layout_marginEnd="5dp"
+                android:background="@drawable/bg_age_selected"
+                android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/setup_age_3_4" android:fontFamily="@font/cairo"
+                    android:textStyle="bold" android:textSize="13sp" android:textColor="@color/colorPrimary"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/btn_age2"
+                android:layout_width="0dp" android:layout_height="52dp"
+                android:layout_weight="1" android:layout_marginHorizontal="5dp"
+                android:background="@drawable/bg_age_unselected"
+                android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/setup_age_5_6" android:fontFamily="@font/cairo"
+                    android:textStyle="bold" android:textSize="13sp" android:textColor="@color/text_secondary"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/btn_age3"
+                android:layout_width="0dp" android:layout_height="52dp"
+                android:layout_weight="1" android:layout_marginStart="5dp"
+                android:background="@drawable/bg_age_unselected"
+                android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/setup_age_7_8" android:fontFamily="@font/cairo"
+                    android:textStyle="bold" android:textSize="13sp" android:textColor="@color/text_secondary"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Start button -->
+        <LinearLayout
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_button_primary"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_start_btn"
+                android:textSize="20sp"
+                android:fontFamily="@font/cairo"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <View android:layout_width="1dp" android:layout_height="24dp"/>
+    </LinearLayout>
+</ScrollView>

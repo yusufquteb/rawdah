@@ -1,3 +1,151 @@
 <resources>
-	<string name="app_name" translatable="false">أطفال الروضة</string>
+    <string name="app_name" translatable="false">أطفال الروضة</string>
+    <string name="app_tagline">نتعلم ونلعب معاً</string>
+
+    <!-- Setup Screen -->
+    <string name="setup_welcome">أهلاً وسهلاً!</string>
+    <string name="setup_subtitle">دعنا نتعرف عليك</string>
+    <string name="setup_name_hint">اكتب اسمك هنا...</string>
+    <string name="setup_name_label">ما اسمك؟</string>
+    <string name="setup_gender_label">أنت...</string>
+    <string name="setup_boy">ولد</string>
+    <string name="setup_girl">بنت</string>
+    <string name="setup_age_label">عمرك؟</string>
+    <string name="setup_age_3_4">٣ - ٤ سنوات</string>
+    <string name="setup_age_5_6">٥ - ٦ سنوات</string>
+    <string name="setup_age_7_8">٧ - ٨ سنوات</string>
+    <string name="setup_start_btn">هيا نبدأ!</string>
+
+    <!-- Home Screen -->
+    <string name="home_greeting_boy">مرحباً يا بطل!</string>
+    <string name="home_greeting_girl">مرحباً يا أميرة!</string>
+    <string name="home_words_learned">كلمة تعلمتها</string>
+    <string name="home_streak">يوم متواصل</string>
+    <string name="home_daily_goal">هدف اليوم</string>
+    <string name="home_explore">اختر ما تريد تعلمه</string>
+    <string name="home_games_section">العاب تفاعلية</string>
+    <string name="home_rewards_btn">جوائزي</string>
+    <string name="home_writing_btn">أتعلم الكتابة</string>
+    <string name="home_parent_btn">للوالدين</string>
+
+    <!-- Category Names -->
+    <string name="cat_animals">الحيوانات</string>
+    <string name="cat_alphabet_ar">الحروف العربية</string>
+    <string name="cat_alphabet_en">الحروف الإنجليزية</string>
+    <string name="cat_numbers">الأرقام</string>
+    <string name="cat_colors">الألوان</string>
+    <string name="cat_shapes">الأشكال</string>
+    <string name="cat_body">جسم الإنسان</string>
+    <string name="cat_vehicles">المواصلات</string>
+    <string name="cat_tools">الأدوات</string>
+    <string name="cat_food">الطعام</string>
+    <string name="cat_school">المدرسة</string>
+    <string name="cat_clothes">الملابس</string>
+    <string name="cat_bath">الحمام</string>
+    <string name="cat_kitchen">المطبخ</string>
+    <string name="cat_furniture">الأثاث</string>
+    <string name="cat_seasons">فصول السنة</string>
+    <string name="cat_months">الشهور</string>
+    <string name="cat_weekdays">أيام الأسبوع</string>
+
+    <!-- Pager Screen -->
+    <string name="pager_tap_to_hear">اضغط لتسمع</string>
+    <string name="pager_play_sound">صوت</string>
+    <string name="pager_next">التالي</string>
+    <string name="pager_prev">السابق</string>
+    <string name="pager_of">من</string>
+    <string name="pager_completed">أكملت هذا الدرس!</string>
+    <string name="pager_song_lyric">كلمة الأغنية:</string>
+    <string name="pager_animal_for_letter">الحيوان:</string>
+
+    <!-- Games -->
+    <string name="game_sounds_title">لعبة أصوات الحيوانات</string>
+    <string name="game_sounds_question">من الذي يصدر هذا الصوت؟</string>
+    <string name="game_sounds_correct">صحيح! أحسنت!</string>
+    <string name="game_sounds_wrong">حاول مرة أخرى!</string>
+    <string name="game_sounds_score">النقاط</string>
+    <string name="game_match_title">لعبة المطابقة</string>
+    <string name="game_match_instruction">طابق الصورة مع الكلمة الصحيحة</string>
+    <string name="game_memory_title">بطاقات الذاكرة</string>
+    <string name="game_memory_instruction">ابحث عن الأزواج المتشابهة!</string>
+    <string name="game_play">العب الآن</string>
+    <string name="game_again">مرة أخرى</string>
+    <string name="game_score_label">نقاطك</string>
+    <string name="game_level">المستوى</string>
+    <string name="game_time">الوقت</string>
+
+    <!-- Writing Activity -->
+    <string name="writing_title">أتعلم الكتابة</string>
+    <string name="writing_ar_letters">الحروف العربية</string>
+    <string name="writing_en_letters">الحروف الإنجليزية</string>
+    <string name="writing_instruction">اتبع الأسهم بإصبعك!</string>
+    <string name="writing_success">رائع! كتبت الحرف بشكل صحيح!</string>
+    <string name="writing_try_again">جرب مرة أخرى، أنت تستطيع!</string>
+    <string name="writing_clear">امسح وابدأ من جديد</string>
+    <string name="writing_check">تحقق</string>
+
+    <!-- Rewards Screen -->
+    <string name="rewards_title">جوائزي ونجومي</string>
+    <string name="rewards_stars_total">إجمالي النجوم</string>
+    <string name="rewards_badges">الشارات</string>
+    <string name="rewards_locked">مقفل</string>
+    <string name="rewards_badge_animals">بطل الحيوانات</string>
+    <string name="rewards_badge_alphabet_ar">بطل الحروف العربية</string>
+    <string name="rewards_badge_alphabet_en">بطل الحروف الإنجليزية</string>
+    <string name="rewards_badge_numbers">بطل الأرقام</string>
+    <string name="rewards_badge_week">بطل الأسبوع</string>
+    <string name="rewards_badge_explorer">المستكشف الصغير</string>
+
+    <!-- Encouragement - used randomly -->
+    <string-array name="encouragements_correct">
+        <item>رائع جداً!</item>
+        <item>أحسنت يا بطل!</item>
+        <item>ممتاز!</item>
+        <item>عبقري!</item>
+        <item>أنت نجم!</item>
+        <item>بالتوفيق يا ذكي!</item>
+        <item>واو! إجابة صحيحة!</item>
+        <item>أنت تتعلم بسرعة!</item>
+        <item>رائع يا حبيبي!</item>
+        <item>فخور بك!</item>
+    </string-array>
+    <string-array name="encouragements_wrong">
+        <item>حاول مرة أخرى!</item>
+        <item>لا تستسلم!</item>
+        <item>أنت تستطيع!</item>
+        <item>تقريباً صحيح، حاول ثانية!</item>
+        <item>لا بأس، جرب من جديد!</item>
+        <item>أنت ذكي، حاول مرة أخرى!</item>
+    </string-array>
+    <string-array name="encouragements_start">
+        <item>هيا نتعلم!</item>
+        <item>مستعد للتعلم؟</item>
+        <item>اليوم سنتعلم شيئاً جديداً!</item>
+        <item>هيا بنا نكتشف!</item>
+    </string-array>
+
+    <!-- Parent Dashboard -->
+    <string name="parent_title">لوحة الوالدين</string>
+    <string name="parent_child_name">اسم الطفل</string>
+    <string name="parent_words_today">كلمات اليوم</string>
+    <string name="parent_time_today">وقت التعلم اليوم</string>
+    <string name="parent_streak">أيام متتالية</string>
+    <string name="parent_total_words">إجمالي الكلمات</string>
+    <string name="parent_category_progress">تقدم الفئات</string>
+    <string name="parent_minutes">دقيقة</string>
+    <string name="parent_close">إغلاق</string>
+
+    <!-- Celebration Dialog -->
+    <string name="celebration_title">مبروك!</string>
+    <string name="celebration_completed">أكملت</string>
+    <string name="celebration_stars_earned">نجوم مكتسبة</string>
+    <string name="celebration_next">التالي</string>
+    <string name="celebration_home">الرئيسية</string>
+
+    <!-- Common -->
+    <string name="btn_back">رجوع</string>
+    <string name="btn_close">إغلاق</string>
+    <string name="btn_next">التالي</string>
+    <string name="btn_retry">حاول مجدداً</string>
+    <string name="loading">جار التحميل...</string>
 </resources>
