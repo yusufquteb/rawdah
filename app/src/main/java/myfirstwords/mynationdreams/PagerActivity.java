@@ -19,8 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 
 public class PagerActivity extends AppCompatActivity {
 
@@ -35,6 +40,7 @@ public class PagerActivity extends AppCompatActivity {
     private SoundManager soundManager;
     private MediaPlayer mediaPlayer;
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private int audioSeq = 0;
 
     // Alphabet mode
     private boolean isAlphabetAr = false;
@@ -83,13 +89,12 @@ public class PagerActivity extends AppCompatActivity {
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
+                audioSeq++;
                 stopMedia();
+                handler.removeCallbacksAndMessages(null);
                 handler.postDelayed(() -> playWordAudio(position), 300);
             }
         });
-
-        // Play first word
-        handler.postDelayed(() -> playWordAudio(0), 500);
     }
 
     private void loadContent() {
@@ -131,19 +136,26 @@ public class PagerActivity extends AppCompatActivity {
             if (folders == null) return;
             java.util.Arrays.sort(folders);
 
-            String[] arNames = loadNames("Arabic");
-            String[] enNames = loadNames("English");
+            // JSON-based names (e.g. shapes/sounds/speech/Arabic/Arabic.txt)
+            Map<String, String> arMap = loadNameMap("Arabic");
+            Map<String, String> enMap = loadNameMap("English");
+
+            // Fallback: mp3 filenames only (no .txt files)
+            String[] arFallback = loadNamesFiltered("Arabic");
+            String[] enFallback = loadNamesFiltered("English");
 
             for (int i = 0; i < folders.length; i++) {
+                String folder = folders[i];
                 WordItem w = new WordItem();
-                w.imagePath   = imgDir + "/" + folders[i] + "/Solution.png";
-                w.arabicName  = (arNames != null && i < arNames.length) ? arNames[i] : folders[i];
-                w.englishName = (enNames != null && i < enNames.length) ? enNames[i] : folders[i];
-                w.soundArPath = section + "/sounds/speech/Arabic/" + folders[i] + ".mp3";
-                w.soundEnPath = section + "/sounds/speech/English/" + folders[i] + ".mp3";
-
+                w.imagePath   = imgDir + "/" + folder + "/Solution.png";
+                w.arabicName  = arMap.containsKey(folder) ? arMap.get(folder)
+                              : (arFallback != null && i < arFallback.length ? arFallback[i] : folder);
+                w.englishName = enMap.containsKey(folder) ? enMap.get(folder)
+                              : (enFallback != null && i < enFallback.length ? enFallback[i] : folder);
+                w.soundArPath = section + "/sounds/speech/Arabic/" + folder + ".mp3";
+                w.soundEnPath = section + "/sounds/speech/English/" + folder + ".mp3";
                 if (section.equals("animals") || section.equals("vehicles")) {
-                    w.soundEffectPath = section + "/sounds/onomatopoeia/" + folders[i] + ".mp3";
+                    w.soundEffectPath = section + "/sounds/onomatopoeia/" + folder + ".mp3";
                 }
                 wordItems.add(w);
             }
@@ -152,15 +164,39 @@ public class PagerActivity extends AppCompatActivity {
         }
     }
 
-    private String[] loadNames(String lang) {
+    // Parse JSON map file: {"key":"Arabic name", ...}
+    private Map<String, String> loadNameMap(String lang) {
+        Map<String, String> map = new HashMap<>();
+        try {
+            InputStream is = getAssets().open(
+                section + "/sounds/speech/" + lang + "/" + lang + ".txt");
+            byte[] b = new byte[is.available()];
+            is.read(b);
+            is.close();
+            JSONObject obj = new JSONObject(new String(b, StandardCharsets.UTF_8));
+            java.util.Iterator<String> keys = obj.keys();
+            while (keys.hasNext()) {
+                String k = keys.next();
+                map.put(k, obj.getString(k));
+            }
+        } catch (Exception ignored) {}
+        return map;
+    }
+
+    // Load display names from mp3 filenames only (skip .txt and other files)
+    private String[] loadNamesFiltered(String lang) {
         try {
             String dir = section + "/sounds/speech/" + lang;
             String[] files = getAssets().list(dir);
             if (files == null) return null;
-            java.util.Arrays.sort(files);
-            String[] names = new String[files.length];
-            for (int i = 0; i < files.length; i++) {
-                names[i] = files[i].replace(".mp3", "");
+            List<String> mp3s = new ArrayList<>();
+            for (String f : files) {
+                if (f.toLowerCase().endsWith(".mp3")) mp3s.add(f);
+            }
+            Collections.sort(mp3s);
+            String[] names = new String[mp3s.size()];
+            for (int i = 0; i < mp3s.size(); i++) {
+                names[i] = mp3s.get(i).replaceAll("\\.mp3$", "");
             }
             return names;
         } catch (IOException e) {
@@ -170,10 +206,13 @@ public class PagerActivity extends AppCompatActivity {
 
     private void playWordAudio(int pos) {
         if (pos >= wordItems.size()) return;
+        final int seq = ++audioSeq;
         WordItem w = wordItems.get(pos);
         progressManager.recordWordViewed(section, String.valueOf(pos));
         playSound(w.soundArPath, () ->
-            handler.postDelayed(() -> playSound(w.soundEnPath, null), 1200));
+            handler.postDelayed(() -> {
+                if (seq == audioSeq) playSound(w.soundEnPath, null);
+            }, 1200));
     }
 
     private void playSound(String path, Runnable onComplete) {
@@ -240,9 +279,20 @@ public class PagerActivity extends AppCompatActivity {
 
             if (isAlphabetAr || isAlphabetEn) {
                 AlphabetData.LetterEntry entry = w.letterEntry;
-                // Show the letter big, animal name small
-                arDisplay = entry.letter;
-                enDisplay = isAlphabetAr ? entry.animalNameAr : entry.animalNameEn;
+
+                if (isAlphabetAr) {
+                    // Arabic: show letter in Arabic-styled big box, animal name below
+                    arDisplay = entry.letter;
+                    enDisplay = entry.animalNameAr;
+                    h.tvWordAr.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+                    h.tvWordAr.setTextDirection(View.TEXT_DIRECTION_RTL);
+                } else {
+                    // English: show letter in LTR direction, English animal name below
+                    arDisplay = entry.letter;
+                    enDisplay = entry.animalNameEn;
+                    h.tvWordAr.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                    h.tvWordAr.setTextDirection(View.TEXT_DIRECTION_LTR);
+                }
 
                 // Show song lyric
                 h.layoutSongLyric.setVisibility(View.VISIBLE);
