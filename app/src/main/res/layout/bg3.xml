@@ -5,7 +5,7 @@
     android:layoutDirection="rtl"
     android:background="@color/bg_cream">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -296,7 +296,7 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <!-- Confetti overlay (invisible until triggered) -->
     <myfirstwords.mynationdreams.ConfettiView

@@ -5,175 +5,198 @@
     android:viewportWidth="200"
     android:viewportHeight="200">
 
-    <!-- Dress (Pink/Purple) -->
+    <!-- Dress (Pink) -->
     <path
         android:fillColor="#F72585"
-        android:pathData="M55,135 Q55,168 100,170 Q145,168 145,135 L138,108 L62,108 Z" />
+        android:pathData="M53,135 Q53,170 100,172 Q147,170 147,135 L140,108 L60,108 Z" />
     <!-- Dress Collar Detail -->
     <path
         android:fillColor="#FF85C0"
-        android:pathData="M85,108 Q100,120 115,108 L112,100 Q100,108 88,100 Z" />
+        android:pathData="M84,108 Q100,122 116,108 L113,100 Q100,110 87,100 Z" />
+
+    <!-- Dress highlight (3D effect) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.22"
+        android:pathData="M66,122 C64,117 68,114 74,116 C80,118 79,125 75,126 C70,127 66,124 66,122 Z" />
 
     <!-- Neck -->
     <path
         android:fillColor="#FFCC99"
         android:pathData="M88,106 L88,116 Q100,120 112,116 L112,106 Z" />
 
-    <!-- Head -->
+    <!-- Head (bigger, rounder) -->
     <path
         android:fillColor="#FFCC99"
-        android:pathData="M65,80 Q65,50 100,48 Q135,50 135,80 Q135,110 100,112 Q65,110 65,80 Z" />
+        android:pathData="M57,78 C57,46 72,30 100,28 C128,30 143,46 143,78 C143,110 128,126 100,128 C72,126 57,110 57,78 Z" />
+
+    <!-- Head highlight (3D glow) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.28"
+        android:pathData="M76,52 C74,47 79,43 86,45 C93,47 96,55 93,60 C90,65 80,63 77,57 C76,55 76,52 76,52 Z" />
 
     <!-- Hair (Dark Brown) -->
     <path
         android:fillColor="#3D1C02"
-        android:pathData="M63,78 Q64,52 80,48 Q100,44 120,48 Q136,52 137,78 Q132,55 100,52 Q68,55 63,78 Z" />
+        android:pathData="M57,78 C57,54 64,40 78,34 C88,29 100,27 112,29 C124,32 135,40 143,60 C138,46 126,38 110,35 C100,32 90,32 80,36 C68,41 61,54 57,78 Z" />
 
     <!-- Pigtail Left -->
     <path
         android:fillColor="#3D1C02"
-        android:pathData="M67,72 Q58,65 55,58 Q52,50 58,48 Q65,46 67,55 Q68,62 67,72 Z" />
+        android:pathData="M64,70 C55,62 51,52 54,44 Q58,38 65,40 C69,42 68,52 66,62 C65,66 64,70 64,70 Z" />
     <!-- Pigtail Right -->
     <path
         android:fillColor="#3D1C02"
-        android:pathData="M133,72 Q142,65 145,58 Q148,50 142,48 Q135,46 133,55 Q132,62 133,72 Z" />
+        android:pathData="M136,70 C145,62 149,52 146,44 Q142,38 135,40 C131,42 132,52 134,62 C135,66 136,70 136,70 Z" />
 
     <!-- Hair Bow (Pink) -->
     <path
         android:fillColor="#FF85C0"
-        android:pathData="M88,48 Q90,40 100,42 Q110,40 112,48 Q100,52 88,48 Z" />
+        android:pathData="M88,46 Q90,37 100,39 Q110,37 112,46 Q100,50 88,46 Z" />
     <!-- Bow left wing -->
     <path
         android:fillColor="#FF85C0"
-        android:pathData="M100,44 Q90,36 84,40 Q82,44 88,48 Q94,46 100,44 Z" />
+        android:pathData="M100,42 Q88,34 82,38 Q80,43 88,46 Q94,44 100,42 Z" />
     <!-- Bow right wing -->
     <path
         android:fillColor="#FF85C0"
-        android:pathData="M100,44 Q110,36 116,40 Q118,44 112,48 Q106,46 100,44 Z" />
-    <!-- Bow knot: oval rx=5 ry=4 at (100,46) -->
+        android:pathData="M100,42 Q112,34 118,38 Q120,43 112,46 Q106,44 100,42 Z" />
+    <!-- Bow knot -->
     <path
         android:fillColor="#FF4090"
-        android:pathData="M95,46 C95,43.79 97.24,42 100,42 C102.76,42 105,43.79 105,46 C105,48.21 102.76,50 100,50 C97.24,50 95,48.21 95,46 Z" />
+        android:pathData="M95,44 C95,41.79 97.24,40 100,40 C102.76,40 105,41.79 105,44 C105,46.21 102.76,48 100,48 C97.24,48 95,46.21 95,44 Z" />
 
-    <!-- Eyes White left: circle r=9 at (85,82) -->
+    <!-- Eyes White left: r=13 at (84,80) -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M76,82 C76,77.03 80.03,73 85,73 C89.97,73 94,77.03 94,82 C94,86.97 89.97,91 85,91 C80.03,91 76,86.97 76,82 Z" />
-    <!-- Eyes White right: circle r=9 at (115,82) -->
+        android:pathData="M71,80 C71,72.82 77.27,67 84,67 C90.73,67 97,72.82 97,80 C97,87.18 90.73,93 84,93 C77.27,93 71,87.18 71,80 Z" />
+    <!-- Eyes White right: r=13 at (116,80) -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M106,82 C106,77.03 110.03,73 115,73 C119.97,73 124,77.03 124,82 C124,86.97 119.97,91 115,91 C110.03,91 106,86.97 106,82 Z" />
+        android:pathData="M103,80 C103,72.82 109.27,67 116,67 C122.73,67 129,72.82 129,80 C129,87.18 122.73,93 116,93 C109.27,93 103,87.18 103,80 Z" />
 
-    <!-- Pupils left: circle r=5 at (87,84) -->
+    <!-- Pupils left: r=8 at (86,82) — brown for girl -->
     <path
-        android:fillColor="#5D3A1A"
-        android:pathData="M82,84 C82,81.24 84.24,79 87,79 C89.76,79 92,81.24 92,84 C92,86.76 89.76,89 87,89 C84.24,89 82,86.76 82,84 Z" />
-    <!-- Pupils right: circle r=5 at (117,84) -->
+        android:fillColor="#3D1C02"
+        android:pathData="M78,82 C78,77.58 81.58,74 86,74 C90.42,74 94,77.58 94,82 C94,86.42 90.42,90 86,90 C81.58,90 78,86.42 78,82 Z" />
+    <!-- Pupils right: r=8 at (118,82) -->
     <path
-        android:fillColor="#5D3A1A"
-        android:pathData="M112,84 C112,81.24 114.24,79 117,79 C119.76,79 122,81.24 122,84 C122,86.76 119.76,89 117,89 C114.24,89 112,86.76 112,84 Z" />
+        android:fillColor="#3D1C02"
+        android:pathData="M110,82 C110,77.58 113.58,74 118,74 C122.42,74 126,77.58 126,82 C126,86.42 122.42,90 118,90 C113.58,90 110,86.42 110,82 Z" />
 
-    <!-- Eye shine left: circle r=2 at (89,82) -->
+    <!-- Eye shine left: r=3 at (90,78) -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M87,82 C87,80.9 87.9,80 89,80 C90.1,80 91,80.9 91,82 C91,83.1 90.1,84 89,84 C87.9,84 87,83.1 87,82 Z" />
-    <!-- Eye shine right: circle r=2 at (119,82) -->
+        android:pathData="M87,78 C87,76.34 88.34,75 90,75 C91.66,75 93,76.34 93,78 C93,79.66 91.66,81 90,81 C88.34,81 87,79.66 87,78 Z" />
+    <!-- Eye shine right: r=3 at (122,78) -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M117,82 C117,80.9 117.9,80 119,80 C120.1,80 121,80.9 121,82 C121,83.1 120.1,84 119,84 C117.9,84 117,83.1 117,82 Z" />
+        android:pathData="M119,78 C119,76.34 120.34,75 122,75 C123.66,75 125,76.34 125,78 C125,79.66 123.66,81 122,81 C120.34,81 119,79.66 119,78 Z" />
 
-    <!-- Eyelashes left -->
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M78,76 L76,73" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M81,74 L80,71" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M85,73 L85,70" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M89,74 L90,71" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M92,76 L94,73" />
+    <!-- Eyelashes left (longer, more defined) -->
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M75,72 L73,68" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M79,69 L78,65" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M84,67 L84,63" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M89,69 L91,65" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M93,72 L96,68" />
 
     <!-- Eyelashes right -->
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M108,76 L106,73" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M111,74 L110,71" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M115,73 L115,70" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M119,74 L120,71" />
-    <path android:strokeColor="#3D1C02" android:strokeWidth="1.5" android:strokeLineCap="round" android:pathData="M122,76 L124,73" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M107,72 L105,68" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M111,69 L110,65" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M116,67 L116,63" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M121,69 L123,65" />
+    <path android:strokeColor="#3D1C02" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M125,72 L128,68" />
 
-    <!-- Eyebrows -->
+    <!-- Eyebrows (softer, curved) -->
     <path
         android:strokeColor="#3D1C02"
-        android:strokeWidth="2"
+        android:strokeWidth="2.5"
         android:strokeLineCap="round"
-        android:pathData="M78,72 Q85,68 92,72" />
+        android:pathData="M76,67 Q84,63 92,67" />
     <path
         android:strokeColor="#3D1C02"
-        android:strokeWidth="2"
+        android:strokeWidth="2.5"
         android:strokeLineCap="round"
-        android:pathData="M108,72 Q115,68 122,72" />
+        android:pathData="M108,67 Q116,63 124,67" />
 
     <!-- Nose -->
     <path
         android:strokeColor="#F0A070"
-        android:strokeWidth="2"
-        android:strokeLineCap="round"
-        android:pathData="M98,90 Q100,93 102,90" />
-
-    <!-- Smile -->
-    <path
-        android:strokeColor="#D4732A"
         android:strokeWidth="2.5"
         android:strokeLineCap="round"
-        android:pathData="M88,101 Q100,112 112,101" />
+        android:pathData="M97,92 Q100,96 103,92" />
 
-    <!-- Cheek left: oval rx=7 ry=5 at (76,97) -->
+    <!-- Smile teeth (white area) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M87,103 Q100,117 113,103 L111,109 Q100,119 89,109 Z" />
+
+    <!-- Smile line -->
+    <path
+        android:strokeColor="#C0622A"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M85,102 Q100,118 115,102" />
+
+    <!-- Cheek left: rx=9 ry=6 at (74,98) -->
     <path
         android:fillColor="#FF8FA3"
-        android:fillAlpha="0.5"
-        android:pathData="M69,97 C69,94.24 72.13,92 76,92 C79.87,92 83,94.24 83,97 C83,99.76 79.87,102 76,102 C72.13,102 69,99.76 69,97 Z" />
-    <!-- Cheek right: oval rx=7 ry=5 at (124,97) -->
+        android:fillAlpha="0.65"
+        android:pathData="M65,98 C65,94.69 69.03,92 74,92 C78.97,92 83,94.69 83,98 C83,101.31 78.97,104 74,104 C69.03,104 65,101.31 65,98 Z" />
+    <!-- Cheek right: rx=9 ry=6 at (126,98) -->
     <path
         android:fillColor="#FF8FA3"
-        android:fillAlpha="0.5"
-        android:pathData="M117,97 C117,94.24 120.13,92 124,92 C127.87,92 131,94.24 131,97 C131,99.76 127.87,102 124,102 C120.13,102 117,99.76 117,97 Z" />
+        android:fillAlpha="0.65"
+        android:pathData="M117,98 C117,94.69 121.03,92 126,92 C130.97,92 135,94.69 135,98 C135,101.31 130.97,104 126,104 C130.97,104 117,101.31 117,98 Z" />
 
-    <!-- Left Arm -->
+    <!-- Left Arm (waving) -->
     <path
         android:fillColor="#F72585"
-        android:pathData="M62,118 Q44,112 40,98 Q38,90 44,88 Q51,86 53,94 Q56,102 62,122 Z" />
-    <!-- Left Hand: circle r=8 at (42,86) -->
+        android:pathData="M60,120 Q40,110 34,90 Q30,78 38,74 Q46,70 50,82 Q54,94 60,124 Z" />
+    <!-- Left Hand: r=10 at (36,72) -->
     <path
         android:fillColor="#FFCC99"
-        android:pathData="M34,86 C34,81.58 37.58,78 42,78 C46.42,78 50,81.58 50,86 C50,90.42 46.42,94 42,94 C37.58,94 34,90.42 34,86 Z" />
+        android:pathData="M26,72 C26,66.48 30.48,62 36,62 C41.52,62 46,66.48 46,72 C46,77.52 41.52,82 36,82 C30.48,82 26,77.52 26,72 Z" />
 
     <!-- Right Arm -->
     <path
         android:fillColor="#F72585"
-        android:pathData="M138,118 Q156,112 160,125 Q162,135 153,137 Q145,139 138,129 Z" />
-    <!-- Right Hand: circle r=8 at (161,127) -->
+        android:pathData="M140,120 Q160,112 164,130 Q166,140 157,143 Q148,146 140,134 Z" />
+    <!-- Right Hand: r=10 at (165,132) -->
     <path
         android:fillColor="#FFCC99"
-        android:pathData="M153,127 C153,122.58 156.58,119 161,119 C165.42,119 169,122.58 169,127 C169,131.42 165.42,135 161,135 C156.58,135 153,131.42 153,127 Z" />
+        android:pathData="M155,132 C155,126.48 159.48,122 165,122 C170.52,122 175,126.48 175,132 C175,137.52 170.52,142 165,142 C159.48,142 155,137.52 155,132 Z" />
 
-    <!-- Legs -->
+    <!-- Legs (skin color for dress) -->
     <path
         android:fillColor="#FFCC99"
-        android:pathData="M80,167 L82,188 L93,188 L94,167 Z" />
+        android:pathData="M78,168 L80,191 L93,191 L94,168 Z" />
     <path
         android:fillColor="#FFCC99"
-        android:pathData="M106,167 L109,188 L120,188 L118,167 Z" />
+        android:pathData="M106,168 L108,191 L121,191 L119,168 Z" />
 
     <!-- Shoes (Pink) -->
     <path
         android:fillColor="#F72585"
-        android:pathData="M76,186 Q82,194 95,191 L93,184 Z" />
+        android:pathData="M74,189 Q81,197 95,194 L93,186 Z" />
     <path
         android:fillColor="#F72585"
-        android:pathData="M106,186 Q115,194 124,191 L120,184 Z" />
+        android:pathData="M106,189 Q115,197 125,194 L121,186 Z" />
 
     <!-- Heart sparkle -->
     <path
         android:fillColor="#FF4090"
-        android:pathData="M170,55 Q172,50 174,55 Q179,50 179,55 Q179,60 174,65 Q169,60 169,55 Z" />
+        android:pathData="M172,52 Q174,46 176,52 Q182,46 182,52 Q182,58 176,64 Q170,58 170,52 Z" />
 
     <!-- Star sparkle -->
     <path
         android:fillColor="#FFD700"
-        android:pathData="M25,65 L27,59 L29,65 L35,65 L30,69 L32,75 L27,71 L22,75 L24,69 L19,65 Z" />
+        android:pathData="M18,58 L20,51 L22,58 L29,58 L24,63 L26,70 L20,65 L14,70 L16,63 L11,58 Z" />
+
+    <!-- Small dot sparkle -->
+    <path
+        android:fillColor="#FF85C0"
+        android:fillAlpha="0.8"
+        android:pathData="M160,46 C160,44.34 161.34,43 163,43 C164.66,43 166,44.34 166,46 C166,47.66 164.66,49 163,49 C161.34,49 160,47.66 160,46 Z" />
 </vector>

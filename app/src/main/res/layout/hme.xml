@@ -7,7 +7,7 @@
     android:layoutDirection="rtl"
     android:background="@color/bg_surface">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -439,5 +439,5 @@
                 android:clipToPadding="false" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
