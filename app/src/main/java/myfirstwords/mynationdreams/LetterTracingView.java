@@ -135,13 +135,46 @@ public class LetterTracingView extends View {
 
         buildPathForLetter(letter, cx, cy, unit);
 
+        // First pass: collect all sub-path lengths (letters like H, I, T, X have multiple moveTo strokes)
+        List<Float> segLengths = new ArrayList<>();
         PathMeasure pm = new PathMeasure(guidePath, false);
-        guideLength = pm.getLength();
+        do {
+            float len = pm.getLength();
+            if (len > 0f) segLengths.add(len);
+        } while (pm.nextContour());
 
-        for (int i = 0; i < GUIDE_POINTS; i++) {
-            float[] pos = new float[2];
-            pm.getPosTan(guideLength * i / (GUIDE_POINTS - 1), pos, null);
-            guidePoints.add(new PointF(pos[0], pos[1]));
+        if (segLengths.isEmpty()) {
+            java.util.Arrays.fill(coveredPoints, false);
+            coveredCount = 0;
+            invalidate();
+            return;
+        }
+
+        float total = 0f;
+        for (float l : segLengths) total += l;
+        guideLength = total;
+
+        // Distribute GUIDE_POINTS proportionally across sub-paths; last absorbs rounding remainder
+        int[] ptCount = new int[segLengths.size()];
+        int assigned = 0;
+        for (int i = 0; i < segLengths.size() - 1; i++) {
+            ptCount[i] = Math.max(1, (int)(GUIDE_POINTS * segLengths.get(i) / total));
+            assigned += ptCount[i];
+        }
+        ptCount[segLengths.size() - 1] = Math.max(1, GUIDE_POINTS - assigned);
+
+        // Second pass: sample points from each sub-path
+        pm = new PathMeasure(guidePath, false);
+        for (int ci = 0; ci < segLengths.size(); ci++) {
+            float segLen = segLengths.get(ci);
+            int n = ptCount[ci];
+            for (int i = 0; i < n; i++) {
+                float[] pos = new float[2];
+                float dist = (n == 1) ? 0f : segLen * i / (n - 1);
+                pm.getPosTan(dist, pos, null);
+                guidePoints.add(new PointF(pos[0], pos[1]));
+            }
+            if (ci < segLengths.size() - 1) pm.nextContour();
         }
 
         java.util.Arrays.fill(coveredPoints, false);
