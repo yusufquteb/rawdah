@@ -2,13 +2,11 @@ package myfirstwords.mynationdreams;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -50,7 +48,7 @@ public class LetterTracingView extends View {
     private TracingListener listener;
 
     private static final int GUIDE_POINTS = 200;
-    private static final float HIT_RADIUS_DP = 28f;
+    private static final float HIT_RADIUS_DP = 22f;
     private float hitRadius;
 
     public LetterTracingView(Context context) {
@@ -129,13 +127,15 @@ public class LetterTracingView extends View {
 
         float w = getWidth();
         float h = getHeight();
-        float cx = w / 2f;
-        float cy = h / 2f;
-        float unit = Math.min(w, h) * 0.35f;
+        float textSize = Math.min(w, h) * 0.55f;
 
-        buildPathForLetter(letter, cx, cy, unit);
+        // Extract the exact glyph outline from the font — matches the ghost letter in onDraw
+        Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        textPaint.setTextSize(textSize);
+        textPaint.setTextAlign(Paint.Align.CENTER);
+        textPaint.getTextPath(letter, 0, letter.length(), w / 2f, h / 2f + textSize * 0.35f, guidePath);
 
-        // First pass: collect all sub-path lengths (letters like H, I, T, X have multiple moveTo strokes)
+        // First pass: collect all sub-path lengths
         List<Float> segLengths = new ArrayList<>();
         PathMeasure pm = new PathMeasure(guidePath, false);
         do {
@@ -180,341 +180,6 @@ public class LetterTracingView extends View {
         java.util.Arrays.fill(coveredPoints, false);
         coveredCount = 0;
         invalidate();
-    }
-
-    private void buildPathForLetter(String ch, float cx, float cy, float u) {
-        // Normalize: take the first code-point
-        if (ch == null || ch.isEmpty()) ch = "أ";
-        String c = ch.trim();
-        if (c.isEmpty()) c = "أ";
-
-        // Arabic letters
-        switch (c) {
-            case "أ": case "ا":
-                // Vertical stroke down, then small curve at top
-                guidePath.moveTo(cx, cy - u);
-                guidePath.lineTo(cx, cy + u);
-                break;
-            case "ب":
-                // Horizontal line with dot below
-                guidePath.moveTo(cx - u, cy);
-                guidePath.cubicTo(cx - u * 0.5f, cy + u * 0.3f,
-                    cx + u * 0.5f, cy + u * 0.3f,
-                    cx + u, cy);
-                guidePath.lineTo(cx + u * 0.3f, cy - u * 0.2f);
-                break;
-            case "ت": case "ث":
-                guidePath.moveTo(cx - u, cy);
-                guidePath.cubicTo(cx - u * 0.5f, cy + u * 0.3f,
-                    cx + u * 0.5f, cy + u * 0.3f,
-                    cx + u, cy);
-                guidePath.lineTo(cx + u * 0.3f, cy - u * 0.2f);
-                break;
-            case "ج": case "ح": case "خ":
-                guidePath.moveTo(cx - u * 0.5f, cy - u * 0.3f);
-                guidePath.lineTo(cx + u * 0.5f, cy - u * 0.3f);
-                guidePath.cubicTo(cx + u * 0.8f, cy - u * 0.3f,
-                    cx + u, cy + u * 0.2f,
-                    cx + u * 0.3f, cy + u * 0.5f);
-                guidePath.lineTo(cx - u * 0.2f, cy + u * 0.8f);
-                break;
-            case "د": case "ذ":
-                guidePath.moveTo(cx, cy - u);
-                guidePath.cubicTo(cx + u * 0.6f, cy - u,
-                    cx + u, cy - u * 0.3f,
-                    cx + u, cy + u * 0.1f);
-                guidePath.cubicTo(cx + u, cy + u * 0.5f,
-                    cx + u * 0.6f, cy + u * 0.8f,
-                    cx, cy + u);
-                break;
-            case "ر": case "ز":
-                guidePath.moveTo(cx + u * 0.3f, cy - u * 0.5f);
-                guidePath.cubicTo(cx + u * 0.5f, cy - u * 0.3f,
-                    cx + u * 0.5f, cy + u * 0.3f,
-                    cx, cy + u);
-                break;
-            case "س": case "ش":
-                // Three humps
-                guidePath.moveTo(cx - u, cy);
-                guidePath.cubicTo(cx - u * 0.7f, cy - u * 0.4f,
-                    cx - u * 0.4f, cy - u * 0.4f,
-                    cx - u * 0.3f, cy);
-                guidePath.cubicTo(cx - u * 0.1f, cy - u * 0.4f,
-                    cx + u * 0.2f, cy - u * 0.4f,
-                    cx + u * 0.3f, cy);
-                guidePath.cubicTo(cx + u * 0.5f, cy - u * 0.4f,
-                    cx + u * 0.8f, cy - u * 0.4f,
-                    cx + u, cy);
-                guidePath.lineTo(cx + u * 0.5f, cy + u * 0.4f);
-                break;
-            case "ص": case "ض":
-                guidePath.moveTo(cx - u * 0.2f, cy - u * 0.3f);
-                guidePath.addOval(new RectF(cx - u * 0.7f, cy - u * 0.5f,
-                    cx + u * 0.2f, cy + u * 0.3f), Path.Direction.CW);
-                guidePath.moveTo(cx + u * 0.2f, cy - u * 0.1f);
-                guidePath.lineTo(cx + u, cy - u * 0.1f);
-                guidePath.lineTo(cx + u, cy + u * 0.5f);
-                break;
-            case "ط": case "ظ":
-                guidePath.moveTo(cx - u * 0.3f, cy + u * 0.5f);
-                guidePath.lineTo(cx + u * 0.3f, cy + u * 0.5f);
-                guidePath.moveTo(cx, cy + u * 0.5f);
-                guidePath.lineTo(cx, cy - u * 0.5f);
-                guidePath.cubicTo(cx, cy - u * 0.8f, cx - u * 0.3f, cy - u * 0.8f,
-                    cx - u * 0.3f, cy - u * 0.5f);
-                guidePath.lineTo(cx - u * 0.3f, cy + u * 0.5f);
-                break;
-            case "ع": case "غ":
-                guidePath.moveTo(cx + u * 0.5f, cy - u * 0.5f);
-                guidePath.cubicTo(cx + u * 0.2f, cy - u * 0.8f,
-                    cx - u * 0.4f, cy - u * 0.8f,
-                    cx - u * 0.5f, cy - u * 0.2f);
-                guidePath.cubicTo(cx - u * 0.6f, cy + u * 0.3f,
-                    cx - u * 0.2f, cy + u * 0.5f,
-                    cx + u * 0.2f, cy + u * 0.2f);
-                guidePath.lineTo(cx + u * 0.2f, cy + u * 0.8f);
-                break;
-            case "ف":
-                guidePath.addCircle(cx - u * 0.2f, cy, u * 0.45f, Path.Direction.CW);
-                guidePath.moveTo(cx + u * 0.25f, cy);
-                guidePath.lineTo(cx + u, cy);
-                guidePath.lineTo(cx + u, cy + u * 0.4f);
-                break;
-            case "ق":
-                guidePath.addCircle(cx, cy - u * 0.1f, u * 0.45f, Path.Direction.CW);
-                guidePath.moveTo(cx - u * 0.45f, cy - u * 0.1f);
-                guidePath.lineTo(cx - u * 0.45f, cy + u * 0.7f);
-                guidePath.moveTo(cx + u * 0.45f, cy - u * 0.1f);
-                guidePath.lineTo(cx + u * 0.45f, cy + u * 0.7f);
-                break;
-            case "ك":
-                guidePath.moveTo(cx + u, cy - u * 0.5f);
-                guidePath.lineTo(cx + u, cy + u * 0.7f);
-                guidePath.moveTo(cx - u * 0.5f, cy - u * 0.3f);
-                guidePath.cubicTo(cx, cy - u * 0.5f, cx + u * 0.7f, cy - u * 0.3f,
-                    cx + u, cy + u * 0.1f);
-                guidePath.moveTo(cx - u * 0.3f, cy + u * 0.1f);
-                guidePath.lineTo(cx + u * 0.5f, cy + u * 0.7f);
-                break;
-            case "ل":
-                guidePath.moveTo(cx + u * 0.2f, cy - u);
-                guidePath.cubicTo(cx + u * 0.6f, cy - u,
-                    cx + u * 0.8f, cy - u * 0.4f,
-                    cx + u * 0.8f, cy);
-                guidePath.cubicTo(cx + u * 0.8f, cy + u * 0.5f,
-                    cx + u * 0.4f, cy + u * 0.8f,
-                    cx, cy + u * 0.8f);
-                guidePath.lineTo(cx - u * 0.5f, cy + u * 0.8f);
-                break;
-            case "م":
-                guidePath.moveTo(cx + u * 0.5f, cy - u * 0.2f);
-                guidePath.addCircle(cx, cy, u * 0.45f, Path.Direction.CW);
-                guidePath.moveTo(cx - u * 0.45f, cy);
-                guidePath.lineTo(cx - u * 0.45f, cy + u * 0.7f);
-                break;
-            case "ن":
-                guidePath.moveTo(cx - u * 0.8f, cy - u * 0.2f);
-                guidePath.cubicTo(cx - u * 0.8f, cy + u * 0.5f,
-                    cx + u * 0.8f, cy + u * 0.5f,
-                    cx + u * 0.8f, cy - u * 0.2f);
-                break;
-            case "ه":
-                guidePath.addCircle(cx, cy, u * 0.5f, Path.Direction.CW);
-                break;
-            case "و":
-                guidePath.moveTo(cx + u * 0.3f, cy - u * 0.2f);
-                guidePath.addArc(new RectF(cx - u * 0.3f, cy - u * 0.5f,
-                    cx + u * 0.7f, cy + u * 0.3f), -90, 270);
-                guidePath.lineTo(cx - u * 0.3f, cy + u);
-                break;
-            case "ي": case "ى":
-                guidePath.moveTo(cx - u, cy - u * 0.2f);
-                guidePath.cubicTo(cx - u * 0.3f, cy + u * 0.3f,
-                    cx + u * 0.3f, cy + u * 0.3f,
-                    cx + u, cy - u * 0.2f);
-                guidePath.cubicTo(cx + u * 0.7f, cy + u * 0.5f,
-                    cx - u * 0.7f, cy + u * 0.5f,
-                    cx - u, cy + u * 0.2f);
-                break;
-            // English uppercase letters
-            case "A":
-                guidePath.moveTo(cx - u * 0.6f, cy + u);
-                guidePath.lineTo(cx, cy - u);
-                guidePath.lineTo(cx + u * 0.6f, cy + u);
-                guidePath.moveTo(cx - u * 0.3f, cy + u * 0.1f);
-                guidePath.lineTo(cx + u * 0.3f, cy + u * 0.1f);
-                break;
-            case "B":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.cubicTo(cx + u * 0.5f, cy - u, cx + u * 0.7f, cy - u * 0.5f,
-                    cx - u * 0.4f, cy);
-                guidePath.moveTo(cx - u * 0.4f, cy);
-                guidePath.cubicTo(cx + u * 0.6f, cy, cx + u * 0.8f, cy + u * 0.5f,
-                    cx - u * 0.4f, cy + u);
-                break;
-            case "C":
-                guidePath.addArc(new RectF(cx - u * 0.6f, cy - u, cx + u * 0.6f, cy + u),
-                    -30, -300);
-                break;
-            case "D":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.cubicTo(cx + u * 0.8f, cy - u, cx + u * 0.8f, cy + u,
-                    cx - u * 0.4f, cy + u);
-                break;
-            case "E":
-                guidePath.moveTo(cx + u * 0.5f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                guidePath.moveTo(cx - u * 0.4f, cy);
-                guidePath.lineTo(cx + u * 0.3f, cy);
-                break;
-            case "F":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx + u * 0.5f, cy - u);
-                guidePath.moveTo(cx - u * 0.4f, cy);
-                guidePath.lineTo(cx + u * 0.3f, cy);
-                break;
-            case "G":
-                guidePath.addArc(new RectF(cx - u * 0.6f, cy - u, cx + u * 0.6f, cy + u),
-                    -30, -300);
-                guidePath.moveTo(cx + u * 0.6f, cy);
-                guidePath.lineTo(cx + u * 0.1f, cy);
-                break;
-            case "H":
-                guidePath.moveTo(cx - u * 0.5f, cy - u);
-                guidePath.lineTo(cx - u * 0.5f, cy + u);
-                guidePath.moveTo(cx + u * 0.5f, cy - u);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                guidePath.moveTo(cx - u * 0.5f, cy);
-                guidePath.lineTo(cx + u * 0.5f, cy);
-                break;
-            case "I":
-                guidePath.moveTo(cx, cy - u);
-                guidePath.lineTo(cx, cy + u);
-                guidePath.moveTo(cx - u * 0.3f, cy - u);
-                guidePath.lineTo(cx + u * 0.3f, cy - u);
-                guidePath.moveTo(cx - u * 0.3f, cy + u);
-                guidePath.lineTo(cx + u * 0.3f, cy + u);
-                break;
-            case "J":
-                guidePath.moveTo(cx + u * 0.3f, cy - u);
-                guidePath.lineTo(cx + u * 0.3f, cy + u * 0.5f);
-                guidePath.cubicTo(cx + u * 0.3f, cy + u, cx - u * 0.5f, cy + u, cx - u * 0.5f, cy + u * 0.3f);
-                break;
-            case "K":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.moveTo(cx + u * 0.5f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                break;
-            case "L":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                break;
-            case "M":
-                guidePath.moveTo(cx - u * 0.6f, cy + u);
-                guidePath.lineTo(cx - u * 0.6f, cy - u);
-                guidePath.lineTo(cx, cy);
-                guidePath.lineTo(cx + u * 0.6f, cy - u);
-                guidePath.lineTo(cx + u * 0.6f, cy + u);
-                break;
-            case "N":
-                guidePath.moveTo(cx - u * 0.5f, cy + u);
-                guidePath.lineTo(cx - u * 0.5f, cy - u);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                guidePath.lineTo(cx + u * 0.5f, cy - u);
-                break;
-            case "O":
-                guidePath.addOval(new RectF(cx - u * 0.6f, cy - u, cx + u * 0.6f, cy + u),
-                    Path.Direction.CW);
-                break;
-            case "P":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.cubicTo(cx + u * 0.6f, cy - u, cx + u * 0.6f, cy,
-                    cx - u * 0.4f, cy);
-                break;
-            case "Q":
-                guidePath.addOval(new RectF(cx - u * 0.6f, cy - u, cx + u * 0.6f, cy + u),
-                    Path.Direction.CW);
-                guidePath.moveTo(cx + u * 0.2f, cy + u * 0.5f);
-                guidePath.lineTo(cx + u * 0.7f, cy + u);
-                break;
-            case "R":
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.lineTo(cx - u * 0.4f, cy + u);
-                guidePath.moveTo(cx - u * 0.4f, cy - u);
-                guidePath.cubicTo(cx + u * 0.6f, cy - u, cx + u * 0.6f, cy,
-                    cx - u * 0.4f, cy);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                break;
-            case "S":
-                guidePath.moveTo(cx + u * 0.5f, cy - u * 0.8f);
-                guidePath.cubicTo(cx - u * 0.5f, cy - u * 1.1f, cx - u * 0.8f, cy - u * 0.3f,
-                    cx, cy);
-                guidePath.cubicTo(cx + u * 0.8f, cy + u * 0.3f, cx + u * 0.5f, cy + u * 1.1f,
-                    cx - u * 0.5f, cy + u * 0.8f);
-                break;
-            case "T":
-                guidePath.moveTo(cx - u * 0.6f, cy - u);
-                guidePath.lineTo(cx + u * 0.6f, cy - u);
-                guidePath.moveTo(cx, cy - u);
-                guidePath.lineTo(cx, cy + u);
-                break;
-            case "U":
-                guidePath.moveTo(cx - u * 0.5f, cy - u);
-                guidePath.lineTo(cx - u * 0.5f, cy + u * 0.4f);
-                guidePath.cubicTo(cx - u * 0.5f, cy + u * 0.9f, cx + u * 0.5f, cy + u * 0.9f,
-                    cx + u * 0.5f, cy + u * 0.4f);
-                guidePath.lineTo(cx + u * 0.5f, cy - u);
-                break;
-            case "V":
-                guidePath.moveTo(cx - u * 0.6f, cy - u);
-                guidePath.lineTo(cx, cy + u);
-                guidePath.lineTo(cx + u * 0.6f, cy - u);
-                break;
-            case "W":
-                guidePath.moveTo(cx - u * 0.7f, cy - u);
-                guidePath.lineTo(cx - u * 0.35f, cy + u);
-                guidePath.lineTo(cx, cy);
-                guidePath.lineTo(cx + u * 0.35f, cy + u);
-                guidePath.lineTo(cx + u * 0.7f, cy - u);
-                break;
-            case "X":
-                guidePath.moveTo(cx - u * 0.5f, cy - u);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                guidePath.moveTo(cx + u * 0.5f, cy - u);
-                guidePath.lineTo(cx - u * 0.5f, cy + u);
-                break;
-            case "Y":
-                guidePath.moveTo(cx - u * 0.5f, cy - u);
-                guidePath.lineTo(cx, cy);
-                guidePath.moveTo(cx + u * 0.5f, cy - u);
-                guidePath.lineTo(cx, cy);
-                guidePath.lineTo(cx, cy + u);
-                break;
-            case "Z":
-                guidePath.moveTo(cx - u * 0.5f, cy - u);
-                guidePath.lineTo(cx + u * 0.5f, cy - u);
-                guidePath.lineTo(cx - u * 0.5f, cy + u);
-                guidePath.lineTo(cx + u * 0.5f, cy + u);
-                break;
-            default:
-                // Fallback: simple vertical line
-                guidePath.moveTo(cx, cy - u);
-                guidePath.lineTo(cx, cy + u);
-                break;
-        }
     }
 
     // ── Draw ───────────────────────────────────────────────────────────────────
