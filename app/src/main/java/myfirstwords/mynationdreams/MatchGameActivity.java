@@ -1,6 +1,7 @@
 package myfirstwords.mynationdreams;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.GradientDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -60,6 +61,7 @@ public class MatchGameActivity extends AppCompatActivity {
     }
 
     private void loadQuestion() {
+        if (allAnimals.size() < 4) { finish(); return; }
         answered = false;
         tvFeedback.setText("");
         resetButtons();
@@ -169,8 +171,10 @@ public class MatchGameActivity extends AppCompatActivity {
     private void loadImg(ImageView iv, String path) {
         try {
             InputStream is = getAssets().open(path);
-            iv.setImageDrawable(Drawable.createFromStream(is, null));
+            Bitmap bm = BitmapFactory.decodeStream(is);
             is.close();
+            if (bm != null) iv.setImageBitmap(bm);
+            else iv.setImageResource(R.drawable.default_image);
         } catch (Exception e) { iv.setImageResource(R.drawable.default_image); }
     }
 

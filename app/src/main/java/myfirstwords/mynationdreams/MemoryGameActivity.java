@@ -1,6 +1,7 @@
 package myfirstwords.mynationdreams;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -80,6 +81,7 @@ public class MemoryGameActivity extends AppCompatActivity {
 
         List<AlphabetData.AnimalSoundItem> animals = AlphabetData.getAnimalSoundsForGame();
         Collections.shuffle(animals);
+        if (animals.size() < TOTAL_PAIRS) { finish(); return; }
 
         List<AlphabetData.AnimalSoundItem> selected = animals.subList(0, TOTAL_PAIRS);
 
@@ -303,8 +305,10 @@ public class MemoryGameActivity extends AppCompatActivity {
     private void loadImg(ImageView iv, String path) {
         try {
             InputStream is = getAssets().open(path);
-            iv.setImageDrawable(Drawable.createFromStream(is, null));
+            Bitmap bm = BitmapFactory.decodeStream(is);
             is.close();
+            if (bm != null) iv.setImageBitmap(bm);
+            else iv.setImageResource(R.drawable.default_image);
         } catch (Exception e) { iv.setImageResource(R.drawable.default_image); }
     }
 }

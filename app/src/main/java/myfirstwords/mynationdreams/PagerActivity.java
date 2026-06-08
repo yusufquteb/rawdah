@@ -1,7 +1,8 @@
 package myfirstwords.mynationdreams;
 
 import android.content.res.AssetFileDescriptor;
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -384,9 +385,10 @@ public class PagerActivity extends AppCompatActivity {
         private void loadBitmapInto(ImageView iv, String assetPath) {
             try {
                 InputStream is = getAssets().open(assetPath);
-                Drawable d = Drawable.createFromStream(is, null);
-                iv.setImageDrawable(d);
+                Bitmap bm = BitmapFactory.decodeStream(is);
                 is.close();
+                if (bm != null) iv.setImageBitmap(bm);
+                else iv.setImageResource(R.drawable.default_image);
             } catch (Exception e) {
                 iv.setImageResource(R.drawable.default_image);
             }
